@@ -78,7 +78,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
                 backgroundColor: Color.fromARGB(255, 213, 82, 99),
                 radius: 50,
                 child: Icon(isListening ? Icons.mic_none : Icons.mic,
-                    color: Colors.white, size: 35),
+                    color: Colors.white, size: 30),
               ),
             ),
           ),
@@ -101,14 +101,14 @@ class _ChatbotPageState extends State<ChatbotPage> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight + 20), // Height of AppBar + padding
         child: Padding(
-          padding: const EdgeInsets.only(top: 30.0, left: 6.0, right: 10.0),
+          padding: const EdgeInsets.only(top: 20.0, left: 6.0, right: 6.0),
           child: AppBar(
             leading: const Icon(Icons.sort_rounded,size: 30,),
             centerTitle: true,
             backgroundColor: Colors.white,
             elevation: 0.0, // Add padding above title
               title: Text(
-                "Speech to Text",
+                "MedIQ",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                 ),

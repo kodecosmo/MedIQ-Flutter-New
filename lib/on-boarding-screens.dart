@@ -76,7 +76,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           },
                           child: Text('Next'),
                         )
-                ])),
+                    ]
+                  )
+                ),
       ],
     ));
   }
