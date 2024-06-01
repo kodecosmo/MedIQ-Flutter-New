@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mediq_flutter/screen/instructions/step2.dart';
 
 class Step1 extends StatelessWidget {
   const Step1({super.key});
@@ -34,21 +35,20 @@ class Step1 extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(Icons.arrow_back_ios),
-                  iconSize: 30.0,
-                ),
-                Image.asset(
-                  'assets/images/instructions/step_1.png',
-                  width: 250,
-                  height: 250,
+                Padding(
+                  padding: const EdgeInsets.only(left: 50.0),
+                  child: Image.asset(
+                    'assets/images/instructions/step_1.png',
+                    width: 250,
+                    height: 250,
+                  ),
                 ),
                 IconButton(
                   onPressed: () {
-                    // Add your navigation to the next step here
+                    Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Step2()),
+                    );
                   },
                   icon: const Icon(Icons.arrow_forward_ios),
                   iconSize: 30.0,

@@ -41,17 +41,13 @@ class Step5 extends StatelessWidget {
                   icon: const Icon(Icons.arrow_back_ios),
                   iconSize: 30.0,
                 ),
-                Image.asset(
-                  'assets/images/instructions/step_5.png',
-                  width: 250,
-                  height: 250,
-                ),
-                IconButton(
-                  onPressed: () {
-                    // Add your navigation to the next step here
-                  },
-                  icon: const Icon(Icons.arrow_forward_ios),
-                  iconSize: 30.0,
+                Padding(
+                  padding: const EdgeInsets.only(right:50.0),
+                  child: Image.asset(
+                    'assets/images/instructions/step_5.png',
+                    width: 250,
+                    height: 250,
+                  ),
                 ),
               ],
             ),

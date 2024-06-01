@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:mediq_flutter/screen/instructions/step3.dart';
 
 class Step2 extends StatelessWidget {
   const Step2({super.key});
@@ -48,7 +49,10 @@ class Step2 extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    // Add your navigation to the next step here
+                    Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Step3()),
+                );
                   },
                   icon: const Icon(Icons.arrow_forward_ios),
                   iconSize: 30.0,
