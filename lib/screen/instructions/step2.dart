@@ -11,7 +11,7 @@ class Step2 extends StatelessWidget {
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(kToolbarHeight + 20),
         child: Padding(
-          padding: const EdgeInsets.only(top: 20.0, left: 10.0, right: 6.0),
+          padding: const EdgeInsets.only(top: 20.0, left: 10.0, right: 20.0),
           child: AppBar(
             leading: const Icon(
               Icons.sort_rounded,
@@ -25,6 +25,22 @@ class Step2 extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            actions:[
+            Container(
+              width: 40.0,
+              height: 40.0,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: Color.fromARGB(255, 240, 127, 127),
+              ),
+              child: IconButton(
+                onPressed: (){}, 
+                  icon: Icon(Icons.emergency_sharp),
+                  iconSize: 20.0,
+                  color: Colors.white,
+                  ),
+            )
+              ], 
           ),
         ),
       ),
