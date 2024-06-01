@@ -28,13 +28,17 @@ class Instructions extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(40.0),
+        padding: const EdgeInsets.only(top:30.0,left:20.0),
         child: Container(
-          color: const Color.fromARGB(255, 255, 255, 255),
+          color: Colors.white,
           height: 500,
           child: ListView(
             scrollDirection: Axis.horizontal,
             children: [
+              buildCard(),
+              SizedBox(width: 25,),
+              buildCard(),
+              SizedBox(width: 25,),
               buildCard(),
             ],
           ),
@@ -46,9 +50,9 @@ class Instructions extends StatelessWidget {
   Widget buildCard() {
     return Center(
       child: Container(
-        width: 300,
+        width: 350,
         height: 500,
-        color: const Color.fromARGB(255, 255, 255, 255),
+        color: Colors.white,
         child: Column(
           children: [
             Padding(
@@ -61,7 +65,7 @@ class Instructions extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 20,),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
