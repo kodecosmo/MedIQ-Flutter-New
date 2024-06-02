@@ -42,6 +42,10 @@ dependencies:
       url: https://github.com/apgapg/avatar_glow
       ref: master
   speech_to_text: ^6.6.1
+  google_maps_flutter: ^2.1.0
+  google_fonts: ^5.0.0
+  location: ^6.0.2
+  flutter_polyline_points: ^2.0.0
       
 dev_dependencies:
   flutter_test:

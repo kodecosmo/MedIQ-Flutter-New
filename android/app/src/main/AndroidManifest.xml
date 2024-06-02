@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
 
     <application
         android:label="mediq_flutter"
@@ -32,5 +34,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+             <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyAiAuoHNiAhQAdYBcpJtud9NeZllaF9xG0"/>
     </application>
 </manifest>

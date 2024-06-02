@@ -9,6 +9,7 @@ import 'package:mediq_flutter/screen/instructions/step5.dart';
 import 'package:mediq_flutter/screen/login.dart';
 import 'package:mediq_flutter/screen/welcome_screen.dart';
 import 'package:mediq_flutter/screen/splash.dart';
+import 'package:mediq_flutter/screen/emt/emt_tab_navigator.dart';
 
 void main() {
   runApp(const MyApp());
