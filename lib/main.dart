@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:mediq_flutter/on-boarding-screens.dart';
 import 'package:mediq_flutter/screen/chatbot.dart';
+import 'package:mediq_flutter/screen/first_aid.dart';
+import 'package:mediq_flutter/screen/home.dart';
+import 'package:mediq_flutter/screen/instructions/step1.dart';
+import 'package:mediq_flutter/screen/instructions/step2.dart';
+import 'package:mediq_flutter/screen/loading_connect.dart';
 import 'package:mediq_flutter/screen/home.dart';
 import 'package:mediq_flutter/screen/instructions.dart';
 import 'package:mediq_flutter/screen/login.dart';
+import 'package:mediq_flutter/screen/sos.dart';
 import 'package:mediq_flutter/screen/user_calls/calling_api.dart';
 import 'package:mediq_flutter/screen/welcome_screen.dart';
 import 'package:mediq_flutter/screen/splash.dart';
+import 'package:mediq_flutter/screen/emt_connect.dart';
+import 'package:mediq_flutter/widgets/navbar.dart';
 
 void main() {
   runApp(const MyApp());

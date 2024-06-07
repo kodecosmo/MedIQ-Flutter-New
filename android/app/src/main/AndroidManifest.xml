@@ -2,6 +2,8 @@
     package="com.zegocloud.zego_zimkit_demo">
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
@@ -49,5 +51,7 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+            <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="GOOGLE_MAPS_API_KEY"/>
     </application>
 </manifest>
