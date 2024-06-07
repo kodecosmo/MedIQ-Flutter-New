@@ -7,6 +7,7 @@ import 'package:mediq_flutter/screen/instructions/step3.dart';
 import 'package:mediq_flutter/screen/instructions/step4.dart';
 import 'package:mediq_flutter/screen/instructions/step5.dart';
 import 'package:mediq_flutter/screen/login.dart';
+import 'package:mediq_flutter/screen/user_calls/calling_api.dart';
 import 'package:mediq_flutter/screen/welcome_screen.dart';
 import 'package:mediq_flutter/screen/splash.dart';
 
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: ChatbotPage(),
+      home: CallingScreen(),
       routes: {
        // '/': (context) => const SplashScreen(),
         '/welcome': (context) => const WelcomeScreen(),

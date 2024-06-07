@@ -42,6 +42,8 @@ dependencies:
       url: https://github.com/apgapg/avatar_glow
       ref: master
   speech_to_text: ^6.6.1
+  zego_uikit_prebuilt_call: ^4.11.3
+  zego_uikit_signaling_plugin: ^2.7.10
       
 dev_dependencies:
   flutter_test:
