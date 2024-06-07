@@ -3,8 +3,6 @@ import 'package:mediq_flutter/on-boarding-screens.dart';
 import 'package:mediq_flutter/screen/chatbot.dart';
 import 'package:mediq_flutter/screen/first_aid.dart';
 import 'package:mediq_flutter/screen/home.dart';
-import 'package:mediq_flutter/screen/instructions/step1.dart';
-import 'package:mediq_flutter/screen/instructions/step2.dart';
 import 'package:mediq_flutter/screen/loading_connect.dart';
 import 'package:mediq_flutter/screen/home.dart';
 import 'package:mediq_flutter/screen/instructions.dart';

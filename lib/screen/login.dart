@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mediq_flutter/screen/home.dart';
 import 'package:mediq_flutter/screen/welcome_screen.dart';
-import 'package:mediq_flutter/screen/registration_page.dart'; // Import the registration page
+import 'package:mediq_flutter/screen/registration_page.dart';
+import 'package:mediq_flutter/widgets/navbar.dart'; // Import the registration page
 
 class LoginPage extends StatefulWidget {
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:avatar_glow/avatar_glow.dart';
-import 'package:mediq_flutter/screen/instructions/step1.dart';
+import 'package:mediq_flutter/screen/instructions.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -57,7 +57,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
         // Navigate to Step01 screen
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const Step1()),
+          MaterialPageRoute(builder: (context) => const Instructions()),
         );
       } else {
         print('Failed to send text to API: ${response.statusCode}');
@@ -66,7 +66,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
       print('Error sending text to API: $e');
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const Step1()),
+        MaterialPageRoute(builder: (context) => const Instructions()),
       );
     }
   }
