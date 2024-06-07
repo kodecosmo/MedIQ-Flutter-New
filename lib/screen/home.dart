@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mediq_flutter/screen/instructions/step1.dart';
 import 'package:mediq_flutter/widgets/chatbot_card.dart';
 import 'package:mediq_flutter/widgets/community_card.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MyHomePageNew extends StatefulWidget {
-  const MyHomePageNew({super.key});
+  const MyHomePageNew({Key? key}) : super(key: key);
 
   @override
   State<MyHomePageNew> createState() => _HomePageState();
@@ -14,13 +15,9 @@ class _HomePageState extends State<MyHomePageNew> {
   // controller for the page view
   final _controller = PageController();
 
-  // GlobalKey to control the Scaffold
-  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey, // Assign the GlobalKey to the Scaffold
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -34,11 +31,13 @@ class _HomePageState extends State<MyHomePageNew> {
           ),
         ),
         centerTitle: true,
-        leading: IconButton(
-          icon: const Icon(Icons.menu, color: Colors.black),
-          onPressed: () {
-            _scaffoldKey.currentState?.openDrawer();
-          },
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(Icons.menu, color: Colors.black),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+          ),
         ),
         actions: [
           Container(
@@ -55,15 +54,18 @@ class _HomePageState extends State<MyHomePageNew> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            const DrawerHeader(
+            DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.blue.shade100,
               ),
-              child: Text(
-                'Menu',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
+              child: const Center(
+                child: Text(
+                  'MedIQ',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 34,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ),
@@ -102,7 +104,7 @@ class _HomePageState extends State<MyHomePageNew> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const SizedBox(height: 25),
+              SizedBox(height: 25),
               // welcome message
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
@@ -112,14 +114,14 @@ class _HomePageState extends State<MyHomePageNew> {
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w300),
                 ),
               ),
-              const SizedBox(height: 25),
+              SizedBox(height: 25),
               // Emergency card
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: ChatbotCard(),
               ),
               // column of quick actions
-              const SizedBox(height: 35),
+              SizedBox(height: 35),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 alignment: Alignment.centerLeft,
@@ -128,107 +130,98 @@ class _HomePageState extends State<MyHomePageNew> {
                   style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
                 ),
               ),
-              const SizedBox(height: 25),
+              SizedBox(height: 25),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black87),
-                          borderRadius: BorderRadius.circular(20),
-                          color: const Color.fromRGBO(245, 250, 255, 1),
-                        ),
-                        child: ListTile(
-                          leading:
-                              const Icon(Icons.flash_on, color: Colors.blue),
-                          title: const Text("Choking"),
-                          subtitle: const Text("Available Offline"),
-                          trailing: const Icon(Icons.navigate_next),
-                          contentPadding:
-                              const EdgeInsets.symmetric(horizontal: 25),
-                          horizontalTitleGap: 20,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
+                    // Use GestureDetector for each action
+                    GestureDetector(
+                      onTap: () {
+                        // Handle action onTap
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Step1()),
+                        );
+                      },
+                      child: buildQuickAction(
+                        icon: Icons.flash_on,
+                        title: "Choking",
+                        subtitle: "Available Offline",
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Step1()),
+                          );
+                        },
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black87),
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color.fromRGBO(245, 250, 255, 1),
-                        ),
-                        child: ListTile(
-                          leading:
-                              const Icon(Icons.flash_on, color: Colors.blue),
-                          title: const Text("Severe Bleeding"),
-                          subtitle: const Text("Available Offline"),
-                          trailing: const Icon(Icons.navigate_next),
-                          contentPadding:
-                              const EdgeInsets.symmetric(horizontal: 25),
-                          horizontalTitleGap: 20,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
+                    SizedBox(height: 10),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Step1()),
+                        );
+                      },
+                      child: buildQuickAction(
+                        icon: Icons.flash_on,
+                        title: "Choking",
+                        subtitle: "Available Offline",
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Step1()),
+                          );
+                        },
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black87),
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color.fromRGBO(245, 250, 255, 1),
-                        ),
-                        child: ListTile(
-                          leading:
-                              const Icon(Icons.flash_on, color: Colors.blue),
-                          title: const Text("Allergic Reaction"),
-                          subtitle: const Text("Available Offline"),
-                          trailing: const Icon(Icons.navigate_next),
-                          contentPadding:
-                              const EdgeInsets.symmetric(horizontal: 25),
-                          horizontalTitleGap: 20,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
+                    SizedBox(height: 10),
+                    GestureDetector(
+                      onTap: () {
+                        // Handle action onTap
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Step1()),
+                        );
+                      },
+                      child: buildQuickAction(
+                        icon: Icons.flash_on,
+                        title: "Allergic Reaction",
+                        subtitle: "Available Offline",
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Step1()),
+                          );
+                        },
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black87),
-                          borderRadius: BorderRadius.circular(20),
-                          color: Color.fromRGBO(245, 250, 255, 1),
-                        ),
-                        child: ListTile(
-                          leading:
-                              const Icon(Icons.flash_on, color: Colors.blue),
-                          title: const Text("CPR"),
-                          subtitle: const Text("Available Offline"),
-                          trailing: const Icon(Icons.navigate_next),
-                          contentPadding:
-                              const EdgeInsets.symmetric(horizontal: 25),
-                          horizontalTitleGap: 20,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                        ),
+                    SizedBox(height: 10),
+                    GestureDetector(
+                      onTap: () {
+                        // Handle action onTap
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Step1()),
+                        );
+                      },
+                      child: buildQuickAction(
+                        icon: Icons.flash_on,
+                        title: "CPR",
+                        subtitle: "Available Offline",
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Step1()),
+                          );
+                        },
                       ),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 35),
+              SizedBox(height: 35),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 alignment: Alignment.centerLeft,
@@ -237,7 +230,7 @@ class _HomePageState extends State<MyHomePageNew> {
                   style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
                 ),
               ),
-              const SizedBox(height: 25),
+              SizedBox(height: 25),
               // community card
               Container(
                 height: 180,
@@ -269,7 +262,7 @@ class _HomePageState extends State<MyHomePageNew> {
                   ],
                 ),
               ),
-              const SizedBox(height: 25),
+              SizedBox(height: 25),
               SmoothPageIndicator(
                 controller: _controller,
                 count: 3,
@@ -280,8 +273,37 @@ class _HomePageState extends State<MyHomePageNew> {
                   dotWidth: 8,
                 ),
               ),
-              const SizedBox(height: 25),
+              SizedBox(height: 25),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildQuickAction({
+    required IconData icon,
+    required String title,
+    required String subtitle,
+    required VoidCallback onTap,
+  }) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black87),
+        borderRadius: BorderRadius.circular(20),
+        color: const Color.fromRGBO(245, 250, 255, 1),
+      ),
+      child: InkWell(
+        onTap: onTap, // Assign the onTap callback
+        child: ListTile(
+          leading: Icon(icon, color: Colors.blue),
+          title: Text(title),
+          subtitle: Text(subtitle),
+          trailing: const Icon(Icons.navigate_next),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 25),
+          horizontalTitleGap: 20,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20),
           ),
         ),
       ),
