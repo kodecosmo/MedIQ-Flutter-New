@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mediq_flutter/intro_screens/intro_page_1.dart';
-import 'package:mediq_flutter/intro_screens/intro_page_2.dart';
-import 'package:mediq_flutter/intro_screens/intro_page_3.dart';
+import 'package:mediq_flutter/screen/intro_screens/intro_page_1.dart';
+import 'package:mediq_flutter/screen/intro_screens/intro_page_2.dart';
+import 'package:mediq_flutter/screen/intro_screens/intro_page_3.dart';
 import 'package:mediq_flutter/widgets/navbar.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

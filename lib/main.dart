@@ -11,6 +11,7 @@ import 'package:mediq_flutter/screen/instructions/step5.dart';
 import 'package:mediq_flutter/screen/loading_connect.dart';
 import 'package:mediq_flutter/screen/login.dart';
 import 'package:mediq_flutter/screen/sos.dart';
+import 'package:mediq_flutter/screen/user_calls/calling_api.dart';
 import 'package:mediq_flutter/screen/welcome_screen.dart';
 import 'package:mediq_flutter/screen/splash.dart';
 import 'package:mediq_flutter/screen/emt_connect.dart';
