@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mediq_flutter/on-boarding-screens.dart';
 import 'package:mediq_flutter/screen/chatbot.dart';
+import 'package:mediq_flutter/screen/first_aid.dart';
 import 'package:mediq_flutter/screen/home.dart';
 import 'package:mediq_flutter/screen/instructions/step1.dart';
 import 'package:mediq_flutter/screen/instructions/step2.dart';
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const MyHomePageNew(),
+        home: HorizontalSlider(),
         routes: {
           // '/': (context) => const SplashScreen(),
           '/welcome': (context) => const WelcomeScreen(),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mediq_flutter/screen/instructions/step1.dart';
+import 'package:mediq_flutter/screen/sos.dart';
 import 'package:mediq_flutter/widgets/chatbot_card.dart';
 import 'package:mediq_flutter/widgets/community_card.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -40,13 +41,21 @@ class _HomePageState extends State<MyHomePageNew> {
           ),
         ),
         actions: [
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              color: Colors.red.shade300,
-              shape: BoxShape.circle,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const Sos()),
+              );
+            },
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.red.shade300,
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(Icons.emergency, color: Colors.white),
             ),
-            child: const Icon(Icons.emergency, color: Colors.white),
           )
         ],
       ),
