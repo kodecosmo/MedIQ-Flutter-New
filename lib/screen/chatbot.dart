@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:mediq_flutter/screen/instructions/step1.dart';
 import 'package:speech_to_text/speech_to_text.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class ChatbotPage extends StatefulWidget {
   const ChatbotPage({super.key});
@@ -33,6 +36,38 @@ class _ChatbotPageState extends State<ChatbotPage> {
       setState(() {
         text = "Speech recognition not available";
       });
+    }
+  }
+
+  void sendTextToAPI(String inputText) async {
+    final url = Uri.parse(
+        'https://shakthi.me/query'); // Replace with your API endpoint
+    final headers = {'Content-Type': 'application/json'};
+    final body = json.encode({"question": inputText});
+
+    // Log the request details
+    print('Sending POST request to: $url');
+    print('Headers: $headers');
+    print('Body: $body');
+
+    try {
+      final response = await http.post(url, headers: headers, body: body);
+      if (response.statusCode == 200) {
+        print('Response: ${response.body}');
+        // Navigate to Step01 screen
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Step1()),
+        );
+      } else {
+        print('Failed to send text to API: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Error sending text to API: $e');
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Step1()),
+      );
     }
   }
 
@@ -73,6 +108,7 @@ class _ChatbotPageState extends State<ChatbotPage> {
                   isListening = false;
                 });
                 speechToText.stop();
+                sendTextToAPI(text); // Send the text to the API
               },
               child: CircleAvatar(
                 backgroundColor: Color.fromARGB(255, 213, 82, 99),
@@ -82,7 +118,9 @@ class _ChatbotPageState extends State<ChatbotPage> {
               ),
             ),
           ),
-          SizedBox(height: 10), // Add some spacing between the button and text button
+          SizedBox(
+              height:
+                  10), // Add some spacing between the button and text button
           TextButton(
             onPressed: () {
               // Handle the button press for text input
@@ -90,49 +128,54 @@ class _ChatbotPageState extends State<ChatbotPage> {
                 text = "You chose to type instead.";
               });
             },
-            child: Text("Ask in words instead",
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500),
-          ),)
+            child: Text(
+              "Ask in words instead",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500),
+            ),
+          )
         ],
       ),
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight + 20), // Height of AppBar + padding
+        preferredSize:
+            Size.fromHeight(kToolbarHeight + 20), // Height of AppBar + padding
         child: Padding(
           padding: const EdgeInsets.only(top: 20.0, left: 10.0, right: 20.0),
           child: AppBar(
-            leading: const Icon(Icons.sort_rounded,size: 30,),
+            leading: const Icon(
+              Icons.sort_rounded,
+              size: 30,
+            ),
             centerTitle: true,
             backgroundColor: Colors.white,
             elevation: 0.0, // Add padding above title
-              title: Text(
-                "MedIQ",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
+            title: Text(
+              "MedIQ",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            actions: [
+              Container(
+                width: 40.0,
+                height: 40.0,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color.fromARGB(255, 240, 127, 127),
                 ),
-              ),
-              actions:[
-            Container(
-              width: 40.0,
-              height: 40.0,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Color.fromARGB(255, 240, 127, 127),
-              ),
-              child: IconButton(
-                onPressed: (){}, 
+                child: IconButton(
+                  onPressed: () {},
                   icon: Icon(Icons.emergency_sharp),
                   iconSize: 20.0,
                   color: Colors.white,
-                  ),
-            )
-              ], 
-            ),
+                ),
+              )
+            ],
+          ),
         ),
-        ),
-      
+      ),
       body: Container(
         alignment: Alignment.center,
         color: Colors.white,
@@ -140,9 +183,9 @@ class _ChatbotPageState extends State<ChatbotPage> {
         margin: EdgeInsets.only(bottom: 140),
         child: Text(text,
             style: TextStyle(
-              fontSize: 16,
-              color: isListening? Colors.black:Colors.black54,
-              fontWeight: FontWeight.w500)),
+                fontSize: 16,
+                color: isListening ? Colors.black : Colors.black54,
+                fontWeight: FontWeight.w500)),
       ),
     );
   }
