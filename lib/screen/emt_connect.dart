@@ -57,40 +57,68 @@ class MapPage extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Connected',
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            SizedBox(width: 8),
+                            Icon(Icons.circle, color: Colors.green),
+                          ],
+                        ),
+                        SizedBox(height: 8),
                         Text(
-                          'Connected',
+                          'EMT - 4 min away',
                           style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
                           ),
                         ),
-                        Spacer(),
-                        Icon(Icons.circle, color: Colors.green),
                       ],
                     ),
-                    SizedBox(height: 8),
-                    Text(
-                      'ETA - 4 min',
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                    SizedBox(height: 8),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        IconButton(
-                          icon: Icon(Icons.videocam),
-                          onPressed: () {},
+                        Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: Colors.grey[300],
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.grey.shade700),
+                          ),
+                          child: IconButton(
+                            icon: Icon(Icons.videocam, color: Colors.grey[700]),
+                            iconSize: 30,
+                            onPressed: () {
+                              // Open video call
+                            },
+                          ),
                         ),
-                        IconButton(
-                          icon: Icon(Icons.mic),
-                          onPressed: () {},
+                        SizedBox(width: 16),
+                        Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: Colors.grey[300],
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.grey.shade700),
+                          ),
+                          child: IconButton(
+                            icon: Icon(Icons.mic, color: Colors.grey[700]),
+                            iconSize: 30,
+                            onPressed: () {
+                              // Open audio call
+                            },
+                          ),
                         ),
                       ],
                     ),
