@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:mediq_flutter/screen/loading_connect.dart';
 
 class Sos extends StatefulWidget {
   const Sos({Key? key}) : super(key: key);
@@ -165,7 +166,7 @@ class _SosState extends State<Sos> {
         // When countdown reaches 0, navigate to the new page
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => NewPage()),
+          MaterialPageRoute(builder: (context) => WaitingPage()),
         );
         timer.cancel(); // Stop the countdown timer
       } else {
@@ -175,20 +176,5 @@ class _SosState extends State<Sos> {
         });
       }
     });
-  }
-}
-
-// New page widget to navigate to
-class NewPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('New Page'),
-      ),
-      body: Center(
-        child: Text('New Page Content'),
-      ),
-    );
   }
 }
