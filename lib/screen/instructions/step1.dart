@@ -1,51 +1,44 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/services.dart';
 import 'package:mediq_flutter/screen/instructions/step2.dart';
 
-class Step1 extends StatelessWidget {
-  const Step1({super.key});
+class Step1 extends StatefulWidget {
+  const Step1({Key? key}) : super(key: key);
+
+  @override
+  _Step1State createState() => _Step1State();
+}
+
+class _Step1State extends State<Step1> {
+  late Map<String, dynamic> jsonData;
+  String title = '';
+  String description = '';
+
+  @override
+  void initState() {
+    super.initState();
+    loadJsonData();
+  }
+
+  Future<void> loadJsonData() async {
+    // Load JSON data from assets
+    String jsonString = await rootBundle.loadString(
+        '/Users/shakthiraveen/Downloads/MedIQ-Flutter-New/lib/screen/instructions/choking.json');
+    setState(() {
+      // Parse JSON data
+      jsonData = json.decode(jsonString);
+      // Extract information based on your JSON structure
+      title = jsonData['step_01']['title'];
+      description = jsonData['step_01']['Description'];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(kToolbarHeight + 20),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20.0, left: 10.0, right: 20.0),
-          child: AppBar(
-            leading: const Icon(
-              Icons.sort_rounded,
-              size: 30,
-            ),
-            centerTitle: true,
-            backgroundColor: Colors.white,
-            title: Text(
-              'Instructions',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-           actions:[
-            Container(
-              width: 40.0,
-              height: 40.0,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Color.fromARGB(255, 240, 127, 127),
-              ),
-              child: IconButton(
-                onPressed: (){}, 
-                  icon: Icon(Icons.emergency_sharp),
-                  iconSize: 20.0,
-                  color: Colors.white,
-                  ),
-            )
-              ], 
-          ),
-        ),
-      ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 30.0,left: 20.0,right: 20.0),
+        padding: const EdgeInsets.only(top: 30.0, left: 20.0, right: 20.0),
         child: Column(
           children: [
             Row(
@@ -62,8 +55,8 @@ class Step1 extends StatelessWidget {
                 IconButton(
                   onPressed: () {
                     Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Step2()),
+                      context,
+                      MaterialPageRoute(builder: (context) => const Step2()),
                     );
                   },
                   icon: const Icon(Icons.arrow_forward_ios),
@@ -71,30 +64,31 @@ class Step1 extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 50,),
+            const SizedBox(
+              height: 50,
+            ),
             Padding(
-              padding: const EdgeInsets.only(left: 10.0, right: 20.0),
+              padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                        'Step 1 - Check',
-                        style: TextStyle(
+                      title,
+                      style: const TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black45
-                        ),
+                          color: Colors.black45),
                     ),
                   ),
-                    SizedBox(height: 40),
-                    Text(
-                      "Check the person's airway and assess the situation.",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600
-                      ),
-                    )
+                  const SizedBox(height: 40),
+                  Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        description,
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w600),
+                      ))
                 ],
               ),
             ),
@@ -104,4 +98,3 @@ class Step1 extends StatelessWidget {
     );
   }
 }
-

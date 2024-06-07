@@ -8,44 +8,8 @@ class Step2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(kToolbarHeight + 20),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 20.0, left: 10.0, right: 20.0),
-          child: AppBar(
-            leading: const Icon(
-              Icons.sort_rounded,
-              size: 30,
-            ),
-            centerTitle: true,
-            backgroundColor: Colors.white,
-            title: Text(
-              'Instructions',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            actions:[
-            Container(
-              width: 40.0,
-              height: 40.0,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Color.fromARGB(255, 240, 127, 127),
-              ),
-              child: IconButton(
-                onPressed: (){}, 
-                  icon: Icon(Icons.emergency_sharp),
-                  iconSize: 20.0,
-                  color: Colors.white,
-                  ),
-            )
-              ], 
-          ),
-        ),
-      ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 30.0,left: 20.0,right: 20.0),
+        padding: const EdgeInsets.only(top: 30.0, left: 20.0, right: 20.0),
         child: Column(
           children: [
             Row(
@@ -66,40 +30,41 @@ class Step2 extends StatelessWidget {
                 IconButton(
                   onPressed: () {
                     Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Step3()),
-                );
+                      context,
+                      MaterialPageRoute(builder: (context) => const Step3()),
+                    );
                   },
                   icon: const Icon(Icons.arrow_forward_ios),
                   iconSize: 30.0,
                 ),
               ],
             ),
-            const SizedBox(height: 50,),
-            Padding(
-              padding: const EdgeInsets.only(left: 10.0, right: 20.0),
+            const SizedBox(
+              height: 50,
+            ),
+            const Padding(
+              padding: EdgeInsets.only(left: 10.0, right: 20.0),
               child: Column(
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                        'Step 2 - Lean',
-                        style: TextStyle(
+                      'Step 2 - Lean',
+                      style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black45
-                        ),
+                          color: Colors.black45),
                     ),
                   ),
-                    SizedBox(height: 40),
-                    Text(
-                      "Lean the person forward to help dislodge the obstruction.",
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black,
-                      ),
-                    )
+                  SizedBox(height: 40),
+                  Text(
+                    "Lean the person forward to help dislodge the obstruction.",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.black,
+                    ),
+                  )
                 ],
               ),
             ),
@@ -109,4 +74,3 @@ class Step2 extends StatelessWidget {
     );
   }
 }
-
