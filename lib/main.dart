@@ -10,6 +10,7 @@ import 'package:mediq_flutter/screen/login.dart';
 import 'package:mediq_flutter/screen/sos.dart';
 import 'package:mediq_flutter/screen/welcome_screen.dart';
 import 'package:mediq_flutter/screen/splash.dart';
+import 'package:mediq_flutter/screen/emt_connect.dart';
 
 void main() {
   runApp(const MyApp());
