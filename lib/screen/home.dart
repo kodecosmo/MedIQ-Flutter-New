@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mediq_flutter/screen/instructions/step1.dart';
+import 'package:mediq_flutter/screen/instructions.dart';
 import 'package:mediq_flutter/screen/sos.dart';
 import 'package:mediq_flutter/widgets/chatbot_card.dart';
 import 'package:mediq_flutter/widgets/community_card.dart';
@@ -150,7 +150,7 @@ class _HomePageState extends State<MyHomePageNew> {
                         // Handle action onTap
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Step1()),
+                          MaterialPageRoute(builder: (context) => Instructions()),
                         );
                       },
                       child: buildQuickAction(
@@ -160,7 +160,7 @@ class _HomePageState extends State<MyHomePageNew> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Step1()),
+                            MaterialPageRoute(builder: (context) => Instructions()),
                           );
                         },
                       ),
@@ -170,7 +170,7 @@ class _HomePageState extends State<MyHomePageNew> {
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Step1()),
+                          MaterialPageRoute(builder: (context) => Instructions()),
                         );
                       },
                       child: buildQuickAction(
@@ -180,7 +180,7 @@ class _HomePageState extends State<MyHomePageNew> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Step1()),
+                            MaterialPageRoute(builder: (context) => Instructions()),
                           );
                         },
                       ),
@@ -191,7 +191,7 @@ class _HomePageState extends State<MyHomePageNew> {
                         // Handle action onTap
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Step1()),
+                          MaterialPageRoute(builder: (context) => Instructions()),
                         );
                       },
                       child: buildQuickAction(
@@ -201,7 +201,7 @@ class _HomePageState extends State<MyHomePageNew> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Step1()),
+                            MaterialPageRoute(builder: (context) => Instructions()),
                           );
                         },
                       ),
@@ -212,7 +212,7 @@ class _HomePageState extends State<MyHomePageNew> {
                         // Handle action onTap
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Step1()),
+                          MaterialPageRoute(builder: (context) => Instructions()),
                         );
                       },
                       child: buildQuickAction(
@@ -222,7 +222,7 @@ class _HomePageState extends State<MyHomePageNew> {
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Step1()),
+                            MaterialPageRoute(builder: (context) => Instructions()),
                           );
                         },
                       ),
