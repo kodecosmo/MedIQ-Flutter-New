@@ -95,7 +95,7 @@ class MapPage extends StatelessWidget {
                         ),
                         SizedBox(height: 8),
                         Text(
-                          'ETA - 4 min',
+                          'EMT - 4 min away',
                           style: TextStyle(
                             fontSize: 16,
                           ),
