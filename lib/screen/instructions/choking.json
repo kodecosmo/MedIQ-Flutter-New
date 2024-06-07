@@ -1,0 +1,9 @@
+{
+    "emergency":"choking",
+    "no_steps":5,
+    "step_01":{"title": "Step 01 - Assess the situation", "Description": "How to assess the situation in detail"},
+    "step_02":{"title": "Step 02 - Call for help", "Description": "How to call for help in detail"},
+    "step_03":{"title": "Step 03 - Give 5 back blows", "Description": "How to give 5 back blows in detail"},
+    "step_04":{"title": "Step 04 - Give 5 abdominal thrusts", "Description": "How to give 5 abdominal thrusts in detail"},
+    "step_05":{"title": "Step 05 - Repeat back blows and abdominal thrusts", "Description": "How to repeat back blows and abdominal thrusts in detail"}
+}
