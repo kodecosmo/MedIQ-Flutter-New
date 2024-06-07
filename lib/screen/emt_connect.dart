@@ -2,34 +2,50 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapPage extends StatelessWidget {
+  const MapPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final LatLng targetLocation = LatLng(6.9271, 79.8612);
 
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          PopupMenuButton<String>(
-            onSelected: (String result) {
-              // Handle status change
-              print("Status changed to $result");
-            },
-            itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              const PopupMenuItem<String>(
-                value: 'Available',
-                child: Text('Available'),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(
+            kToolbarHeight + 20), // Height of AppBar + padding
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20.0, left: 10.0, right: 20.0),
+          child: AppBar(
+            leading: const Icon(
+              Icons.sort_rounded,
+              size: 30,
+            ),
+            centerTitle: true,
+            backgroundColor: Colors.white,
+            elevation: 0.0, // Add padding above title
+            title: const Text(
+              "MedIQ",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
               ),
-              const PopupMenuItem<String>(
-                value: 'Away',
-                child: Text('Away'),
-              ),
-              const PopupMenuItem<String>(
-                value: 'Personal',
-                child: Text('Personal'),
-              ),
+            ),
+            actions: [
+              Container(
+                width: 40.0,
+                height: 40.0,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color.fromARGB(255, 240, 127, 127),
+                ),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.emergency_sharp),
+                  iconSize: 20.0,
+                  color: Colors.white,
+                ),
+              )
             ],
           ),
-        ],
+        ),
       ),
       body: Column(
         children: [
@@ -49,18 +65,19 @@ class MapPage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(22.0),
             child: Card(
+              margin: const EdgeInsets.only(bottom: 52),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
-                side: BorderSide(color: Colors.black),
+                side: const BorderSide(color: Colors.black),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
@@ -78,7 +95,7 @@ class MapPage extends StatelessWidget {
                         ),
                         SizedBox(height: 8),
                         Text(
-                          'EMT - 4 min away',
+                          'ETA - 4 min',
                           style: TextStyle(
                             fontSize: 16,
                           ),
@@ -103,7 +120,7 @@ class MapPage extends StatelessWidget {
                             },
                           ),
                         ),
-                        SizedBox(width: 16),
+                        const SizedBox(width: 16),
                         Container(
                           width: 50,
                           height: 50,
