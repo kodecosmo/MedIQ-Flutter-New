@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mediq_flutter/screen/chatbot.dart';
 
 class ChatbotCard extends StatelessWidget {
   const ChatbotCard({Key? key}) : super(key: key);
@@ -43,7 +44,10 @@ class ChatbotCard extends StatelessWidget {
                 ElevatedButton(
                   // Navigate to chat screen on tap
                   onPressed: () {
-                    Navigator.pushNamed(context, '/chatbot');
+                    Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>  ChatbotPage()),
+              ); 
                   },
                   child: Text(
                     "Chat now",
@@ -54,6 +58,7 @@ class ChatbotCard extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
+                    
                   ),
                 )
               ],

@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
        // '/welcome': (context) => const WelcomeScreen(),
         //'/login': (context) =>  LoginPage(),
        // '/onboarding': (context) => const OnBoardingScreen(),
-       // '/chatbot': (context) => const ChatbotPage(),
+        '/chatbot': (context) => const ChatbotPage(),
       }
     );
   }
