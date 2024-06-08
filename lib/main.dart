@@ -3,6 +3,7 @@ import 'package:mediq_flutter/on-boarding-screens.dart';
 import 'package:mediq_flutter/screen/chatbot.dart';
 import 'package:mediq_flutter/screen/first_aid.dart';
 import 'package:mediq_flutter/screen/home.dart';
+import 'package:mediq_flutter/screen/intro_screens/intro_page_1.dart';
 import 'package:mediq_flutter/screen/loading_connect.dart';
 import 'package:mediq_flutter/screen/home.dart';
 import 'package:mediq_flutter/screen/instructions.dart';
@@ -45,13 +46,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Instructions(),
+      home: IntroPage1(),
       routes: {
        // '/': (context) => const SplashScreen(),
-        '/welcome': (context) => const WelcomeScreen(),
-        '/login': (context) =>  LoginPage(),
-        '/onboarding': (context) => const OnBoardingScreen(),
-        '/chatbot': (context) => const ChatbotPage(),
+       // '/welcome': (context) => const WelcomeScreen(),
+        //'/login': (context) =>  LoginPage(),
+       // '/onboarding': (context) => const OnBoardingScreen(),
+       // '/chatbot': (context) => const ChatbotPage(),
       }
     );
   }

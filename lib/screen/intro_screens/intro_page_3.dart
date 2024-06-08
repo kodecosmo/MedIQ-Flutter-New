@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mediq_flutter/screen/login.dart';
 
 class IntroPage3 extends StatefulWidget {
   const IntroPage3({Key? key}) : super(key: key);
@@ -42,7 +43,7 @@ class _IntroPage2State extends State<IntroPage3> with TickerProviderStateMixin {
             Lottie.network(
               'https://lottie.host/6cb7215d-86c6-4864-ba68-e60b87155a92/SPUEfgrcYj.json',
               controller: _controller,
-              height: 600,
+              height: 500,
             ),
             const SizedBox(
                 height: 10.0), // Add spacing between animation and text
@@ -65,8 +66,35 @@ class _IntroPage2State extends State<IntroPage3> with TickerProviderStateMixin {
                 ),
               ),
             ),
+            SizedBox(height: 50.0),
+            ElevatedButton(
+                    child: Text(
+                      'Log In',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 17, 42, 70)),
+                      padding: MaterialStateProperty.all(
+                        EdgeInsets.symmetric(vertical: 15.0, horizontal: 138.0),
+                      ),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                      ),
+                    ), onPressed: () { 
+                      Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>  LoginPage()),
+              ); 
+              },)
           ],
         ),
+        
       ),
     );
   }

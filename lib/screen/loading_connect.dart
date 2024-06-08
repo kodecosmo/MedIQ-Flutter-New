@@ -1,7 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mediq_flutter/screen/emt_connect.dart';
+ // Import your MapPage here
 
-class WaitingPage extends StatelessWidget {
+class WaitingPage extends StatefulWidget {
+  @override
+  _WaitingPageState createState() => _WaitingPageState();
+}
+
+class _WaitingPageState extends State<WaitingPage> {
+  @override
+  void initState() {
+    super.initState();
+    // Delay for 5 seconds and navigate to MapPage
+    Future.delayed(Duration(seconds: 5), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MapPage()),
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

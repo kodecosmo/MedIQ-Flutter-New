@@ -42,21 +42,21 @@ class _SosState extends State<Sos> {
             ),
             actions: [
               Container(
-                width: 40.0,
-                height: 40.0,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: const Color.fromARGB(255, 240, 127, 127),
-                ),
-                child: IconButton(
-                  onPressed: () {
-                    // Add your SOS button logic here
-                    print('SOS button pressed from app bar');
-                  },
-                  icon: const Icon(Icons.emergency_sharp),
-                  iconSize: 20.0,
-                  color: Colors.white,
-                ),
+                  width: 40.0,
+                  height: 40.0,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 240, 127, 127),
+                  ),
+                  child: IconButton(
+                    onPressed: () {Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Sos()),
+                  );},
+                    icon: Icon(Icons.emergency_sharp),
+                    iconSize: 20.0,
+                    color: Colors.white,
+                  ),
               )
             ],
           ),

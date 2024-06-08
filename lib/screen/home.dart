@@ -20,44 +20,51 @@ class _HomePageState extends State<MyHomePageNew> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: const Text(
-          "MedIQ",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 24,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        centerTitle: true,
-        leading: Builder(
-          builder: (context) => IconButton(
-            icon: const Icon(Icons.menu, color: Colors.black),
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-          ),
-        ),
-        actions: [
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const Sos()),
-              );
-            },
-            child: Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Colors.red.shade300,
-                shape: BoxShape.circle,
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(kToolbarHeight+ 20),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20.0, left: 10.0, right: 22.0),
+          child: AppBar(
+            backgroundColor: Colors.white,
+            elevation: 0,
+            title: const Text(
+              "MedIQ",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
               ),
-              child: const Icon(Icons.emergency, color: Colors.white),
             ),
-          )
-        ],
+            centerTitle: true,
+            leading: Builder(
+              builder: (context) => IconButton(
+                icon: const Icon(Icons.sort_rounded, color: Colors.black),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+              ),
+            ),
+            actions: [
+                Container(
+                  width: 40.0,
+                  height: 40.0,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Color.fromARGB(255, 240, 127, 127),
+                  ),
+                  child: IconButton(
+                    onPressed: () {Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Sos()),
+                  );},
+                    icon: Icon(Icons.emergency_sharp),
+                    iconSize: 20.0,
+                    color: Colors.white,
+                  ),
+              )
+            ],
+          ),
+        ),
       ),
       drawer: Drawer(
         child: ListView(
@@ -120,7 +127,7 @@ class _HomePageState extends State<MyHomePageNew> {
                 alignment: Alignment.centerLeft,
                 child: const Text(
                   "Welcome, Intoloo!",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w300),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
                 ),
               ),
               SizedBox(height: 25),
@@ -136,7 +143,7 @@ class _HomePageState extends State<MyHomePageNew> {
                 alignment: Alignment.centerLeft,
                 child: const Text(
                   "Quick Actions",
-                  style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
               ),
               SizedBox(height: 25),

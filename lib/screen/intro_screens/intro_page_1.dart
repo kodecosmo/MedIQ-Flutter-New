@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mediq_flutter/screen/intro_screens/intro_page_2.dart';
 
 class IntroPage1 extends StatefulWidget {
   const IntroPage1({Key? key}) : super(key: key);
@@ -42,10 +43,11 @@ class _IntroPage2State extends State<IntroPage1> with TickerProviderStateMixin {
             Lottie.network(
               'https://lottie.host/4b5d5f38-2539-4caa-abba-5ac8058ed235/KwnRcbRr6k.json',
               controller: _controller,
-              height: 600,
+              height: 500,
             ),
             const SizedBox(
-                height: 10.0), // Add spacing between animation and text
+                height: 10.0),
+            // Add spacing between animation and text
             Text(
               'Welcome to MediQ',
               style: TextStyle(
@@ -64,6 +66,33 @@ class _IntroPage2State extends State<IntroPage1> with TickerProviderStateMixin {
                 ),
               ),
             ),
+            SizedBox(height: 50.0),
+            ElevatedButton(
+                    child: Text(
+                      'Continue',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 17, 42, 70)),
+                      padding: MaterialStateProperty.all(
+                        EdgeInsets.symmetric(vertical: 15.0, horizontal: 138.0),
+                      ),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                      ),
+                    ), onPressed: () { 
+                      Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>  IntroPage2()),
+              ); 
+              },)
+            
           ],
         ),
       ),

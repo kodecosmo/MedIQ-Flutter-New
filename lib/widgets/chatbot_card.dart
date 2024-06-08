@@ -9,7 +9,7 @@ class ChatbotCard extends StatelessWidget {
     return Container(
       height: 200,
       decoration: BoxDecoration(
-        color: Color.fromRGBO(245, 250, 255, 1),
+        color: Color.fromRGBO(255, 255, 255, 1),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: Colors.red.shade400),
       ),
@@ -26,7 +26,7 @@ class ChatbotCard extends StatelessWidget {
                   "Emergency",
                   style: TextStyle(
                     fontSize: 20,
-                    fontWeight: FontWeight.w300,
+                    fontWeight: FontWeight.w500,
                     color: Colors.red.shade400,
                   ),
                 ),
@@ -59,10 +59,11 @@ class ChatbotCard extends StatelessWidget {
               ],
             ),
             Padding(
-              padding: const EdgeInsets.all(30),
+              padding: const EdgeInsets.only(left:5),
               child: Container(
-                height: 150,
-                width: 150,
+                color: Colors.white,
+                height: 130,
+                width: 130,
                 // Replace the Icon with Lottie.asset widget
                 child: Lottie.network(
                   'https://lottie.host/fff678c8-0c98-4018-8db5-93862a21b448/4Ig8JcCQ1m.json', // Replace 'assets/animation.json' with the path to your Lottie animation file
